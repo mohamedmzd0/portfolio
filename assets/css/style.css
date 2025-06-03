@@ -11,3 +11,16 @@ html {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+/* Highlight the active section */
+section {
+    opacity: 0.5;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: scale(0.98);
+}
+
+    section.active {
+        opacity: 1;
+        transform: scale(1);
+        background: rgba(255, 255, 255, 0.05); /* Optional: subtle background */
+        border-left: 3px solid #6e45e2; /* Accent border */
+    }
