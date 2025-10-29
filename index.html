@@ -1,898 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Abdelaziz Eldeeb - Senior Android Developer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<nav>
-  <a href="#home" class="active">Home</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-</nav>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Rubik', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(to bottom, #e0eafc, #cfdef3);
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1024px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 80px rgba(1,1,0,0.5);
-            border-radius: 12px;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            padding: 50px 40px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            animation: slideInDown 0.8s ease-out both;
-        }
-        
-        @keyframes slideInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .header .title {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            color: #ecf0f1;
-            font-weight: 300;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-            gap: 15px;
-            margin-top: 40px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            padding: 8px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .contact-item:nth-child(1) { animation-delay: 0.4s; }
-        .contact-item:nth-child(2) { animation-delay: 0.5s; }
-        .contact-item:nth-child(3) { animation-delay: 0.6s; }
-        .contact-item:nth-child(4) { animation-delay: 0.7s; }
-        .contact-item:nth-child(5) { animation-delay: 0.8s; }
-        .contact-item:nth-child(6) { animation-delay: 0.9s; }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        
-        .section:nth-child(1) { animation-delay: 0.2s; }
-        .section:nth-child(2) { animation-delay: 0.4s; }
-        .section:nth-child(3) { animation-delay: 0.6s; }
-        .section:nth-child(4) { animation-delay: 0.8s; }
-        .section:nth-child(5) { animation-delay: 1.0s; }
-        .section:nth-child(6) { animation-delay: 1.2s; }
-        
-        .section-title {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            position: relative;
-            opacity: 0;
-            animation: slideInLeft 0.6s ease-out forwards;
-        }
-        
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #e74c3c;
-        }
-        
-        .summary {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            color: #555;
-            text-align: justify;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 5px solid #3498db;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out 0.4s forwards;
-        }
-        
-        .experience-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 5px solid #3498db;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .experience-item:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .experience-item:nth-child(1) { animation-delay: 0.5s; }
-        .experience-item:nth-child(2) { animation-delay: 0.6s; }
-        .experience-item:nth-child(3) { animation-delay: 0.7s; }
-        .experience-item:nth-child(4) { animation-delay: 0.8s; }
-        .experience-item:nth-child(5) { animation-delay: 0.9s; }
-        .experience-item:nth-child(6) { animation-delay: 1.0s; }
-        .experience-item:nth-child(7) { animation-delay: 1.1s; }
-        .experience-item:nth-child(8) { animation-delay: 1.2s; }
-        
-        .job-header {
-            margin-bottom: 15px;
-        }
-        
-        .job-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .company-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .company {
-            color: #3498db;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .duration {
-            color: #7f8c8d;
-            font-weight: 500;
-            background: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .job-description {
-            margin: 15px 0;
-            color: #555;
-            line-height: 1.7;
-        }
-        
-        .technologies {
-            margin-top: 15px;
-        }
-        
-        .tech-label {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 8px;
-        }
-        
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .tech-tag {
-            background: #3498db;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        
-        .tech-tag:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        
-        .skill-category {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #3498db;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .skill-category:nth-child(1) { animation-delay: 0.5s; }
-        .skill-category:nth-child(2) { animation-delay: 0.6s; }
-        .skill-category:nth-child(3) { animation-delay: 0.7s; }
-        .skill-category:nth-child(4) { animation-delay: 0.8s; }
-        
-        .skill-category h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .skill-item {
-            background: #3498db;
-            color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        
-        .skill-item:hover {
-            background: #2980b9;
-            transform: scale(1.05);
-        }
-        
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-        }
-        
-        .education-item {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 5px solid #3498db;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .education-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .education-item:nth-child(1) { animation-delay: 0.5s; }
-        .education-item:nth-child(2) { animation-delay: 0.6s; }
-        .education-item:nth-child(3) { animation-delay: 0.7s; }
-        .education-item:nth-child(4) { animation-delay: 0.8s; }
-        
-        .degree {
-            font-weight: 700;
-            color: #2c3e50;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        
-        .institution {
-            color: #3498db;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .graduation-date {
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-        
-        .project-item {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 5px solid #e74c3c;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .project-item:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .project-item:nth-child(1) { animation-delay: 0.5s; }
-        .project-item:nth-child(2) { animation-delay: 0.6s; }
-        .project-item:nth-child(3) { animation-delay: 0.7s; }
-        .project-item:nth-child(4) { animation-delay: 0.8s; }
-        .project-item:nth-child(5) { animation-delay: 0.9s; }
-        .project-item:nth-child(6) { animation-delay: 1.0s; }
-        .project-item:nth-child(7) { animation-delay: 1.1s; }
-        .project-item:nth-child(8) { animation-delay: 1.2s; }
-        
-        .project-name {
-            font-weight: 700;
-            color: #2c3e50;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        
-        .project-description {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        
-        .project-link {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            display: inline-block;
-        }
-        
-        .project-link:hover {
-            color: #2980b9;
-            transform: translateX(5px);
-        }
-        
-        .languages-certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .languages, .certifications {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 5px solid #3498db;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        .languages:hover, .certifications:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .languages { animation-delay: 0.5s; }
-        .certifications { animation-delay: 0.7s; }
-        
-        .languages h3, .certifications h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .language-item {
-            display: inline-block;
-            background: #27ae60;
-            color: white;
-            padding: 8px 20px;
-            margin: 5px;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        
-        .language-item:hover {
-            background: #219653;
-            transform: scale(1.05);
-        }
-        
-        .cert-item {
-            background: white;
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border-left: 3px solid #f39c12;
-            font-weight: 500;
-            color: #2c3e50;
-            transition: all 0.2s ease;
-        }
-        
-        .cert-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 2.2rem;
-            }
-            
-            .content {
-                padding: 25px;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .company-info {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .projects-grid,
-            .skills-grid,
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .print-friendly {
-            display: none;
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .print-friendly {
-                display: block;
-            }
-            
-            /* Disable animations for print */
-            * {
-                animation: none !important;
-                transition: none !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohamed Abdealziz Eldeeb — Senior Android Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Mohamed Abdealziz Eldeeb — Senior Android Developer. Expert in Kotlin, Jetpack Compose, Clean Architecture, and mobile app development." />
+  <style>
+    :root{
+      --accent:#3498db;
+      --accent-2:#e74c3c;
+      --muted:#7f8c8d;
+      --bg-a: linear-gradient(180deg,#e9f1ff 0%, #f5f8fb 100%);
+      --card:#f8f9fa;
+      --glass: rgba(255,255,255,0.7);
+      --radius:12px;
+      font-family: 'Rubik', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg-a);
+      color:#222;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
+    }
+
+    /* Page container */
+    .wrapper{
+      width:100%;
+      max-width:1100px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+      border-radius:var(--radius);
+      box-shadow: 0 10px 40px rgba(18,38,63,0.08);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:0;
+      min-height:640px;
+      align-items:stretch;
+      animation:fadeUp .45s ease both;
+    }
+
+    @keyframes fadeUp { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
+
+    /* SIDEBAR */
+    .sidebar{
+      padding:28px;
+      background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);
+      border-right: 1px solid rgba(50,70,90,0.03);
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .avatar {
+      width:86px;height:86px;border-radius:14px;background:linear-gradient(135deg,var(--accent), #6fb3f7);
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
+      box-shadow: 0 6px 18px rgba(52,152,219,0.12);
+    }
+
+    .name {
+      font-size:1.15rem;font-weight:700;color:#122a3a;margin-top:6px;
+    }
+
+    .role { font-size:0.95rem;color:var(--muted);margin-bottom:6px;font-weight:600; }
+
+    .contact {
+      display:grid;gap:8px;margin-top:6px;font-size:0.95rem;
+    }
+    .contact a{color:inherit;text-decoration:none}
+    .contact-item{display:flex;gap:8px;align-items:center;padding:8px;border-radius:10px;background:var(--glass);backdrop-filter: blur(6px);}
+
+    .nav {
+      display:flex;flex-direction:column;gap:6px;margin-top:12px;
+    }
+    .nav a{
+      display:inline-block;padding:10px 12px;border-radius:10px;color:var(--accent);
+      text-decoration:none;font-weight:600;font-size:0.95rem;
+    }
+    .nav a.active, .nav a:hover{background:rgba(52,152,219,0.06)}
+
+    .sidebar .section-title { margin-top:12px;font-weight:700;color:#203545;font-size:0.9rem;}
+    .skills, .langs {
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
+    }
+    .chip{background:var(--accent);color:white;padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem}
+
+    /* MAIN content */
+    .main {
+      padding:32px 38px;
+    }
+
+    header.main-header{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+      margin-bottom:18px;
+    }
+    .hero-left{max-width:70%}
+    .hero-title{font-size:1.5rem;font-weight:700;color:#0f2b3a}
+    .hero-sub{color:var(--muted);margin-top:6px;font-size:0.96rem}
+
+    .cta-links{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn--primary{background:var(--accent);color:white}
+    .btn--ghost{border:1px solid rgba(16,40,60,0.06);background:white;color:#0f2b3a}
+
+    /* sections */
+    .section { margin-top:18px; margin-bottom:18px; }
+    .section h2 { font-size:1.15rem;color:#12323f;margin-bottom:12px;border-bottom:3px solid var(--accent);display:inline-block;padding-bottom:8px}
+    .summary {
+      background:var(--card);padding:18px;border-radius:10px;border-left:5px solid var(--accent);
+      color:#334; font-size:1rem;
+    }
+
+    /* Experience list */
+    .exp-list{display:flex;flex-direction:column;gap:12px}
+    .exp{
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border-radius:10px;padding:16px;border-left:5px solid #eaeaea;
+      box-shadow:0 6px 18px rgba(8,20,30,0.03);
+    }
+    .exp .job{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+    .job .title{font-weight:700;color:#142d3a}
+    .job .company a{color:var(--accent);font-weight:600;text-decoration:none}
+    .meta{color:var(--muted);font-weight:600;font-size:0.9rem}
+    .desc{margin-top:10px;color:#384350;line-height:1.6}
+    .tech{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+
+    .tag{background:#eef6ff;border:1px solid rgba(52,152,219,0.08);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem;color:#134a6b}
+
+    /* projects grid */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px}
+    .project{padding:12px;border-radius:10px;background:var(--card);border-left:5px solid var(--accent-2)}
+    .project .p-name{font-weight:700;color:#132c3d}
+    .project .p-desc{color:#36424a;margin-top:8px;font-size:0.95rem}
+    .project a{margin-top:8px;display:inline-block}
+
+    footer{margin-top:20px;color:var(--muted);font-size:0.92rem}
+
+    /* responsive */
+    @media (max-width:980px){
+      .wrapper{grid-template-columns:1fr;min-height:0}
+      .sidebar{order:2;padding:18px}
+      .main{order:1;padding:18px}
+      .hero-left{max-width:100%}
+    }
+
+    @media print{
+      body{padding:0;background:white}
+      .wrapper{box-shadow:none;border-radius:0}
+      .nav,.avatar{display:none}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-     <header class="header" style="font-size: 14px; /* smaller text size */">
-  <h1 style="font-size: 20px; margin-bottom: 4px;">Mohamed Abdealziz Eldeeb</h1>
-  <div class="title" style="font-weight: 600; margin-bottom: 8px;">Senior Android Developer</div>
-  <div class="contact-info" style="font-size: 14px; line-height: 1.4;">
-    <div class="contact-item">
-      📍 <span>6th of October, Giza</span>
-    </div>
-    <div class="contact-item">
-      📞 <a href="tel:+201016912038" style="color: inherit; text-decoration: none;">01016912038</a>
-    </div>
-    <div class="contact-item">
-      ✉️ <a href="mailto:mohamedmzd0@gmail.com" style="color: inherit; text-decoration: none;">mohamedmzd0@gmail.com</a>
-    </div>
-    <div class="contact-item">
-      🔗 <a href="http://linkedin.com/in/mohamedabdelazizeldeeb" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">LinkedIn Profile</a>
-   </div>
-<div class="contact-item">
-  📘 <a href="https://www.facebook.com/m3b3zez" target="_blank" style="color: inherit; text-decoration: none;">Facebook Profile</a>
-  </div>
-<div class="contact-item">
-  📸 <a href="https://www.instagram.com/zoz.eldeb" target="_blank" style="color: inherit; text-decoration: none;">Instagram Profile</a>
-</div>
-</header>
-
-
-        <div class="content">
-            <section class="section" id="home">
-                <h2 class="section-title">Professional Summary</h2>
-                <div class="summary">Senior Android Developer with 6+ years of experience in designing, developing, and deploying high-quality Android applications. Proven track record of delivering 45+ apps across various domains. Proficient in Kotlin, Java, Jetpack Compose, and Clean Architecture. Strong collaborator with a passion for crafting seamless user experiences.</div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Professional Experience</h2>
-                
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Senior Android Developer</div>
-                        <div class="company-info">
-                            <div class="company">Misr Digital Innovation, Maadi</div>
-                            <div class="duration">Apr 2024 – Present</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Developing key features for Egypt's first digital-native mobile banking application as part of Banque Misr's digital transformation initiative.
-                    </div>
-                    <div class="technologies">
-                        <div class="tech-label">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">Jetpack Compose</span>
-                            <span class="tech-tag">MVI</span>
-                            <span class="tech-tag">Modular Architecture</span>
-                            <span class="tech-tag">RESTful APIs</span>
-                            <span class="tech-tag">Caching</span>
-                            <span class="tech-tag">Security & Code Obfuscation</span>
-                            <span class="tech-tag">Firebase Analytics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Part-time Senior Android Developer</div>
-                        <div class="company-info">
-                            <div class="company">SmartPan Fodo, Nasr City</div>
-                            <div class="duration">Jan 2024 – May 2024</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Supported and maintained a POS mobile application by resolving issues and ensuring optimal performance. Tasks included enhancing UI efficiency for dual-pane Android screens, integrating updates for new OS versions, and refining API interactions.
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Senior Android Developer</div>
-                        <div class="company-info">
-                            <div class="company">REFD, Saudi Arabia</div>
-                            <div class="duration">Sept 2023 – Apr 2024</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Built a production-grade Android application from scratch, focusing on performance, modularity, and clean architecture. Delivered features such as push notifications, intuitive UI components, and smooth API integration.
-                    </div>
-                    <div class="technologies">
-                        <div class="tech-label">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">Jetpack Compose</span>
-                            <span class="tech-tag">MVVM</span>
-                            <span class="tech-tag">Clean Architecture</span>
-                            <span class="tech-tag">RESTful APIs</span>
-                            <span class="tech-tag">Firebase Messaging</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Senior Android Developer</div>
-                        <div class="company-info">
-                            <div class="company">Rowaad Software House, Nasr City</div>
-                            <div class="duration">Sept 2022 – Sept 2023</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Worked on a variety of e-commerce projects, delivering 12 mobile applications from development to post-launch support. Responsibilities included implementing product listing, cart, payment, and notification features. Handled app maintenance, bug fixes, and integration of third-party services like Google Maps and social login.
-                    </div>
-                    <div class="technologies">
-                        <div class="tech-label">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">XML</span>
-                            <span class="tech-tag">Retrofit</span>
-                            <span class="tech-tag">Firebase Cloud Messaging</span>
-                            <span class="tech-tag">Google Maps</span>
-                            <span class="tech-tag">Social Login</span>
-                            <span class="tech-tag">Caching</span>
-                            <span class="tech-tag">Clean Architecture</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Freelance Senior Android Developer</div>
-                        <div class="company-info">
-                            <div class="company">Pithsoft, Giza</div>
-                            <div class="duration">Apr 2020 – Aug 2022</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Delivered 12 Android apps for e-commerce, e-learning, and delivery projects. Built features like product listings, payments, notifications, and maps. Handled bug fixes, maintenance, and third-party integrations using MVP/MVVM architectures.
-                    </div>
-                    <div class="technologies">
-                        <div class="tech-label">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">XML</span>
-                            <span class="tech-tag">Retrofit</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Google Maps</span>
-                            <span class="tech-tag">Payment SDKs</span>
-                            <span class="tech-tag">Caching</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Senior Android Developer</div>
-                        <div class="company-info">
-                            <div class="company">ArabApps, Tanta</div>
-                            <div class="duration">Jul 2019 – Sept 2022</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Developed 20+ apps including social, voice chat, e-learning, and ride-hailing platforms. Implemented real-time communication using Socket.IO and WebRTC, in-app payments, API integrations, and security features.
-                    </div>
-                    <div class="technologies">
-                        <div class="tech-label">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Socket.IO</span>
-                            <span class="tech-tag">WebRTC</span>
-                            <span class="tech-tag">Payment SDKs</span>
-                            <span class="tech-tag">REST APIs</span>
-                            <span class="tech-tag">App Security</span>
-                            <span class="tech-tag">MVP</span>
-                            <span class="tech-tag">MVVM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Mobile Developer</div>
-                        <div class="company-info">
-                            <div class="company">HubSolution, 5th Settlement</div>
-                            <div class="duration">Jan 2019 – Jun 2019</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Maintained and supported a tax mobile app, handling bug fixes, API integrations, and real-time features using Socket.IO.
-                    </div>
-                    <div class="technologies">
-                        <div class="tech-label">Technologies:</div>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">XML</span>
-                            <span class="tech-tag">REST APIs</span>
-                            <span class="tech-tag">Socket.IO</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Intern Android Developer</div>
-                        <div class="company-info">
-                            <div class="company">700Apps, Tanta</div>
-                            <div class="duration">Aug 2017 – Sept 2017</div>
-                        </div>
-                    </div>
-                    <div class="job-description">
-                        Completed a training internship in Android development.
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="skills">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Programming Languages</h4>
-                        <div class="skill-list">
-                            <span class="skill-item">Kotlin</span>
-                            <span class="skill-item">Java</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Frameworks & Libraries</h4>
-                        <div class="skill-list">
-                            <span class="skill-item">Jetpack Compose</span>
-                            <span class="skill-item">Coroutines</span>
-                            <span class="skill-item">Retrofit</span>
-                            <span class="skill-item">Koin</span>
-                            <span class="skill-item">Hilt</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Architecture Patterns</h4>
-                        <div class="skill-list">
-                            <span class="skill-item">MVVM</span>
-                            <span class="skill-item">MVI</span>
-                            <span class="skill-item">MVP</span>
-                            <span class="skill-item">Clean Architecture</span>
-                            <span class="skill-item">SOLID Principles</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Tools & Technologies</h4>
-                        <div class="skill-list">
-                            <span class="skill-item">Android Studio</span>
-                            <span class="skill-item">Git</span>
-                            <span class="skill-item">WebRTC</span>
-                            <span class="skill-item">Socket.IO</span>
-                            <span class="skill-item">CI/CD</span>
-                            <span class="skill-item">Unit Testing</span>
-                            <span class="skill-item">RESTful APIs</span>
-                            <span class="skill-item">XML</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Education</h2>
-                <div class="education-grid">
-                    <div class="education-item">
-                        <div class="degree">Bachelor of Computers and Information</div>
-                        <div class="institution">Benha University</div>
-                        <div class="graduation-date">May 2018</div>
-                    </div>
-                    <div class="education-item">
-                        <div class="degree">Android Developer Nanodegree</div>
-                        <div class="institution">Udacity</div>
-                        <div class="graduation-date">Mar 2017</div>
-                    </div>
-                    <div class="education-item">
-                        <div class="degree">Android Basics</div>
-                        <div class="institution">Udacity</div>
-                        <div class="graduation-date">Apr 2016</div>
-                    </div>
-                    <div class="education-item">
-                        <div class="degree">JavaSE</div>
-                        <div class="institution">Imcan</div>
-                        <div class="graduation-date">Jul 2015</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Languages & Certifications</h2>
-                <div class="languages-certifications">
-                 
-                    <div class="certifications">
-                        <h3>Certifications</h3>
-                        <div class="cert-item">Android Developer Nanodegree</div>
-                        <div class="cert-item">Android Basics Nanodegree</div>
-                        <div class="cert-item">Innovation and Ideation by InnovEgypt</div>
-                        <div class="cert-item">VR Foundations for Enterprise</div>
-                        <div class="cert-item">700apps Training Android</div>
-                    </div>
-   <div class="languages">
-                        <h3>Languages</h3>
-                        <div class="language-item">Arabic - Native</div>
-                        <div class="language-item">English - Conversational</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" id="projects">
-                <h2 class="section-title">Selected Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-item">
-                        <div class="project-name">Kayan Voice Chat</div>
-                        <div class="project-description">Voice and social app using Socket.IO, WebRTC, and in-app payments.</div>
-                            <a >Removed From playStore</a>
-  </div>
-                    <div class="project-item">
-                        <div class="project-name">Hamaki</div>
-                        <div class="project-description">E-learning mobile app with streaming and PDF viewer capabilities.</div>
-                              <a class="project-link" href="https://play.google.com/store/search?q=hamaki%20online&c=apps&hl=en" target="_blank">View on Play Store</a>
-</div>
-                    <div class="project-item">
-                        <div class="project-name">Mafak</div>
-                        <div class="project-description">Home maintenance and contracting app offering fast, reliable services at competitive prices.</div>
-                            <a class="project-link" href="https://play.google.com/store/apps/details?id=com.rowaad.mafk&hl=en" target="_blank">View on Play Store</a>
-  </div>
-                    <div class="project-item">
-                        <div class="project-name">IMall</div>
-                        <div class="project-description">Online stores in one place, allowing users to explore, compare products, and access stores directly with a single tap.</div>
-                             <a class="project-link" href="https://play.google.com/store/apps/details?id=com.rowaad.imall&hl=en" target="_blank">View on Play Store</a>
- </div>
-                    <div class="project-item">
-                        <div class="project-name">Refd</div>
-                        <div class="project-description">Healthcare booking app using Jetpack Compose and Clean Architecture.</div>
-                            <a class="project-link" href="https://play.google.com/store/apps/developer?id=RefdApp&hl=en" target="_blank">Developer Page</a>
-  </div>
-                    <div class="project-item">
-                        <div class="project-name">Absheer Be</div>
-                        <div class="project-description">Home maintenance services app with smart scheduling and payments.</div>
-                     <a >Removed From playStore</a>
- </div>
-                    <div class="project-item">
-                        <div class="project-name">AlexCairo</div>
-                        <div class="project-description">Uber-style ride-hailing app with real-time features.</div>
-                     <a >Removed From playStore</a>
- </div>
-                    <div class="project-item">
-                        <div class="project-name">Mostadeem</div>
-                        <div class="project-description">Recycling logistics app with real-time inventory tracking.</div>
-                             <a class="project-link" href="https://play.google.com/store/apps/details?id=com.rowaad.mostadeem&hl=en" target="_blank">View on Play Store</a>
- </div>
-                </div>
-            </section>
+  <div class="wrapper" role="document" aria-labelledby="profile-heading">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" aria-label="Profile sidebar">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="avatar" aria-hidden="true">MA</div>
+        <div>
+          <div class="name">Mohamed Abdealziz Eldeeb</div>
+          <div class="role">Senior Android Developer</div>
         </div>
-    </div>
-<script src="js/script.js"></script>
+      </div>
+
+      <div class="contact" aria-label="Contact information">
+        <div class="contact-item"><span aria-hidden="true">📍</span><span>6th of October, Giza</span></div>
+        <div class="contact-item"><span aria-hidden="true">📞</span><a href="tel:+201016912038">+20 101 691 2038</a></div>
+        <div class="contact-item"><span aria-hidden="true">✉️</span><a href="mailto:mohamedmzd0@gmail.com">mohamedmzd0@gmail.com</a></div>
+        <div class="contact-item"><span aria-hidden="true">🔗</span><a href="https://www.linkedin.com/in/mohamedabdelazizeldeeb" target="_blank" rel="noopener">LinkedIn</a></div>
+        <div class="contact-item"><span aria-hidden="true">📘</span><a href="https://www.facebook.com/m3b3zez" target="_blank" rel="noopener">Facebook</a></div>
+        <div class="contact-item"><span aria-hidden="true">📸</span><a href="https://www.instagram.com/zoz.eldeb" target="_blank" rel="noopener">Instagram</a></div>
+      </div>
+
+      <div class="section-title">Quick Links</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+      </nav>
+
+      <div style="margin-top:8px">
+        <div class="section-title">Top Skills</div>
+        <div class="skills">
+          <span class="chip">Kotlin</span>
+          <span class="chip">Jetpack Compose</span>
+          <span class="chip">Clean Arch</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Languages</div>
+        <div class="langs" style="margin-top:8px">
+          <span class="chip" style="background:#27ae60">Arabic • Native</span>
+          <span class="chip" style="background:#16a085">English • Conversational</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main" id="home">
+      <header class="main-header" role="banner">
+        <div class="hero-left">
+          <div id="profile-heading" class="hero-title">Mohamed Abdealziz Eldeeb</div>
+          <div class="hero-sub">Senior Android Developer — I am working on developing and maintaining mobile applications. Strong experience with Kotlin, Jetpack Compose, modular and clean architectures.</div>
+        </div>
+        <div class="cta-links" aria-hidden="true">
+          <a class="btn btn--primary" href="mailto:mohamedmzd0@gmail.com">Contact</a>
+          <a class="btn btn--ghost" href="#projects">Projects</a>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="summary-heading">
+        <h2 id="summary-heading">Professional Summary</h2>
+        <div class="summary">
+          Senior Android Developer with 6+ years building production mobile applications across finance, e-commerce, and social domains. Proven track record of delivering 45+ apps, working with Kotlin, Java, Jetpack Compose, Coroutines, and modern architecture patterns (Clean Architecture, MVI/MVVM). I am working on developing and maintaining mobile applications with a focus on performance, modularity, and secure code.
+        </div>
+      </section>
+
+      <section id="experience" class="section" aria-labelledby="exp-heading">
+        <h2 id="exp-heading">Professional Experience</h2>
+
+        <div class="exp-list">
+          <!-- oneBank (MDI) -->
+          <article class="exp" aria-labelledby="onebank-title">
+            <div class="job">
+              <div>
+                <div id="onebank-title" class="title">Senior Android Developer</div>
+                <div class="company">
+                  <a href="https://www.onebank.eg/" target="_blank" rel="noopener">oneBank (MDI) — Misr Digital Innovation</a>
+                </div>
+                <div class="meta">Apr 2024 – Nov 2025</div>
+              </div>
+              <div class="meta" aria-hidden="true">Maadi · Egypt</div>
+            </div>
+            <div class="desc">
+              Developing core features for oneBank's digital banking applications — focusing on secure, modular, and high-performance Android code. Responsibilities include architecting feature modules, CI/CD integration, code obfuscation, and analytics.
+            </div>
+            <div class="tech" aria-hidden="true">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">MVI</span>
+              <span class="tag">Modular Architecture</span>
+              <span class="tag">Firebase</span>
+            </div>
+          </article>
+
+          <!-- REFD -->
+          <article class="exp" aria-labelledby="refd-title">
+            <div class="job">
+              <div>
+                <div id="refd-title" class="title">Senior Android Developer</div>
+                <div class="company"><span>REFD</span> · <span>Saudi Arabia</span></div>
+                <div class="meta">Sept 2023 – Apr 2024</div>
+              </div>
+              <div class="meta" aria-hidden="true">Remote</div>
+            </div>
+            <div class="desc">
+              Built a production-grade Android app from scratch using clean architecture and Jetpack Compose. Focus areas: performance, modularity, push notifications and smooth API integration.
+            </div>
+            <div class="tech">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Compose</span>
+              <span class="tag">Clean Architecture</span>
+            </div>
+          </article>
+
+          <!-- Rowaad -->
+          <article class="exp" aria-labelledby="rowaad-title">
+            <div class="job">
+              <div>
+                <div id="rowaad-title" class="title">Senior Android Developer</div>
+                <div class="company"><span>Rowaad Software House</span></div>
+                <div class="meta">Sept 2022 – Sept 2023</div>
+              </div>
+              <div class="meta" aria-hidden="true">Nasr City · Egypt</div>
+            </div>
+            <div class="desc">
+              Delivered multiple e-commerce projects — features included product listings, cart, payments, notifications, and third-party integrations.
+            </div>
+            <div class="tech">
+              <span class="tag">Retrofit</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Google Maps</span>
+            </div>
+          </article>
+
+          <!-- Pithsoft (Freelance) -->
+          <article class="exp" aria-labelledby="pithsoft-title">
+            <div class="job">
+              <div>
+                <div id="pithsoft-title" class="title">Freelance Senior Android Developer</div>
+                <div class="company"><span>Pithsoft</span> · Giza</div>
+                <div class="meta">Apr 2020 – Aug 2022</div>
+              </div>
+              <div class="meta" aria-hidden="true">Freelance</div>
+            </div>
+            <div class="desc">
+              Delivered 12 Android applications across e-commerce, e-learning and delivery verticals. Implemented core features, payment integrations, and post-launch maintenance.
+            </div>
+          </article>
+
+          <!-- ArabApps -->
+          <article class="exp" aria-labelledby="arabapps-title">
+            <div class="job">
+              <div>
+                <div id="arabapps-title" class="title">Senior Android Developer</div>
+                <div class="company"><span>ArabApps</span></div>
+                <div class="meta">Jul 2019 – Sept 2022</div>
+              </div>
+              <div class="meta" aria-hidden="true">Tanta · Egypt</div>
+            </div>
+            <div class="desc">
+              Developed 20+ apps including social & voice chat platforms; implemented real-time features (Socket.IO/WebRTC), in-app payments and app security.
+            </div>
+            <div class="tech">
+              <span class="tag">Socket.IO</span>
+              <span class="tag">WebRTC</span>
+              <span class="tag">MVP/MVVM</span>
+            </div>
+          </article>
+
+          <!-- HubSolution -->
+          <article class="exp" aria-labelledby="hub-title">
+            <div class="job">
+              <div>
+                <div id="hub-title" class="title">Mobile Developer</div>
+                <div class="company"><span>HubSolution</span></div>
+                <div class="meta">Jan 2019 – Jun 2019</div>
+              </div>
+              <div class="meta" aria-hidden="true">5th Settlement · Egypt</div>
+            </div>
+            <div class="desc">
+              Maintained and supported a tax mobile app — bug fixes, API integrations, and realtime features.
+            </div>
+          </article>
+
+          <!-- Internship -->
+          <article class="exp" aria-labelledby="intern-title">
+            <div class="job">
+              <div>
+                <div id="intern-title" class="title">Intern Android Developer</div>
+                <div class="company"><span>700Apps</span></div>
+                <div class="meta">Aug 2017 – Sept 2017</div>
+              </div>
+              <div class="meta" aria-hidden="true">Tanta · Egypt</div>
+            </div>
+            <div class="desc">Completed intensive Android training and hands-on development tasks during internship.</div>
+          </article>
+
+          <!-- NEW: SGt (start 11-2025) -->
+          <article class="exp" aria-labelledby="sgt-title">
+            <div class="job">
+              <div>
+                <div id="sgt-title" class="title">Senior Android Developer</div>
+                <div class="company">
+                  <a href="https://www.sure.com.sa/en/" target="_blank" rel="noopener">SGt — Sure (KSA)</a>
+                </div>
+                <div class="meta">Nov 2025 – Present</div>
+              </div>
+              <div class="meta" aria-hidden="true">Saudi Arabia (Remote/Onsite)</div>
+            </div>
+            <div class="desc">
+              Joining SGt to work on developing and maintaining mobile applications. Responsibilities include feature development, performance optimization, and modular app architecture.
+            </div>
+            <div class="tech">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Compose</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="skills" class="section" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+        <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <strong>Languages</strong>
+            <div style="margin-top:8px">Kotlin · Java</div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <strong>Frameworks & Libraries</strong>
+            <div style="margin-top:8px">Jetpack Compose · Coroutines · Retrofit · Hilt · Koin</div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <strong>Architecture</strong>
+            <div style="margin-top:8px">MVVM · MVI · Clean Architecture · SOLID</div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <strong>Tools</strong>
+            <div style="margin-top:8px">Android Studio · Git · CI/CD · Unit Testing</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Selected Projects</h2>
+        <div class="projects">
+          <div class="project">
+            <div class="p-name">Kayan Voice Chat</div>
+            <div class="p-desc">Voice & social app using Socket.IO, WebRTC and in-app payments. (Removed from Play Store)</div>
+          </div>
+
+          <div class="project">
+            <div class="p-name">Hamaki</div>
+            <div class="p-desc">E-learning mobile app with streaming and PDF viewer.</div>
+            <a class="p-link" href="https://play.google.com/store/search?q=hamaki%20online&c=apps&hl=en" target="_blank">View on Play Store</a>
+          </div>
+
+          <div class="project">
+            <div class="p-name">Mafak</div>
+            <div class="p-desc">Home maintenance & contracting app.</div>
+            <a class="p-link" href="https://play.google.com/store/apps/details?id=com.rowaad.mafk&hl=en" target="_blank">View on Play Store</a>
+          </div>
+
+          <div class="project">
+            <div class="p-name">IMall</div>
+            <div class="p-desc">Multi-store marketplace app.</div>
+            <a class="p-link" href="https://play.google.com/store/apps/details?id=com.rowaad.imall&hl=en" target="_blank">View on Play Store</a>
+          </div>
+
+          <div class="project">
+            <div class="p-name">Refd</div>
+            <div class="p-desc">Healthcare booking app built with Compose and Clean Architecture.</div>
+            <a class="p-link" href="https://play.google.com/store/apps/developer?id=RefdApp&hl=en" target="_blank">Developer Page</a>
+          </div>
+
+          <div class="project">
+            <div class="p-name">Mostadeem</div>
+            <div class="p-desc">Recycling logistics app with real-time tracking.</div>
+            <a class="p-link" href="https://play.google.com/store/apps/details?id=com.rowaad.mostadeem&hl=en" target="_blank">View on Play Store</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <div style="font-weight:700">Bachelor of Computers and Information</div>
+            <div style="color:var(--muted)">Benha University — May 2018</div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <div style="font-weight:700">Android Developer Nanodegree</div>
+            <div style="color:var(--muted)">Udacity — Mar 2017</div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <div style="font-weight:700">Android Basics</div>
+            <div style="color:var(--muted)">Udacity — Apr 2016</div>
+          </div>
+          <div style="background:var(--card);padding:12px;border-radius:10px">
+            <div style="font-weight:700">JavaSE</div>
+            <div style="color:var(--muted)">Imcan — Jul 2015</div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Mohamed Abdealziz Eldeeb — Senior Android Developer · <a href="#contact" style="color:var(--accent)">Contact</a>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple active link handling and smooth scrolling
+    (function() {
+      const links = document.querySelectorAll('.nav a');
+      links.forEach(a => {
+        a.addEventListener('click', (e) => {
+          links.forEach(x => x.classList.remove('active'));
+          a.classList.add('active');
+          const target = document.querySelector(a.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({behavior:'smooth',block:'start'});
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
