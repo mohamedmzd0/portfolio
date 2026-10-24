@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Abdealziz Eldeeb — Senior Android Developer</title>
+  <title>Mohamed Abdealziz Eldeeb — Senior Android & Flutter Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Mohamed Abdealziz Eldeeb — Senior Android Developer. Expert in Kotlin, Jetpack Compose, Clean Architecture, and mobile app development." />
+  <meta name="description" content="Mohamed Abdealziz Eldeeb — Senior Android Developer. Expert in Kotlin, Jetpack Compose, Flutter, Dart, Clean Architecture, and mobile app development." />
   <style>
     :root{
       --accent:#3498db;
       --accent-2:#e74c3c;
+      --flutter:#02569B;
       --muted:#7f8c8d;
       --bg-a: linear-gradient(180deg,#e9f1ff 0%, #f5f8fb 100%);
       --card:#f8f9fa;
@@ -97,6 +98,7 @@ body {
       display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
     }
     .chip{background:var(--accent);color:white;padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem}
+    .chip--flutter{background:var(--flutter)}
 
     /* MAIN content */
     .main {
@@ -140,6 +142,12 @@ body {
 
     .tag{background:#eef6ff;border:1px solid rgba(52,152,219,0.08);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem;color:#134a6b}
 
+    /* skills cards */
+    .skill-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+    .skill-card{background:var(--card);padding:12px;border-radius:10px}
+    .skill-card--flutter{border-left:5px solid var(--flutter)}
+    .skill-card .tech{margin-top:8px}
+
     /* projects grid */
     .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px}
     .project{padding:12px;border-radius:10px;background:var(--card);border-left:5px solid var(--accent-2)}
@@ -172,7 +180,7 @@ body {
         <div class="avatar" aria-hidden="true">MA</div>
         <div>
           <div class="name">Mohamed Abdealziz Eldeeb</div>
-          <div class="role">Senior Android Developer</div>
+          <div class="role">Senior Android &amp; Flutter Developer</div>
         </div>
       </div>
 
@@ -199,6 +207,8 @@ body {
         <div class="skills">
           <span class="chip">Kotlin</span>
           <span class="chip">Jetpack Compose</span>
+          <span class="chip chip--flutter">Flutter</span>
+          <span class="chip chip--flutter">Dart</span>
           <span class="chip">Clean Arch</span>
         </div>
       </div>
@@ -217,7 +227,7 @@ body {
       <header class="main-header" role="banner">
         <div class="hero-left">
           <div id="profile-heading" class="hero-title">Mohamed Abdealziz Eldeeb</div>
-          <div class="hero-sub">Senior Android Developer — I am working on developing and maintaining mobile applications. Strong experience with Kotlin, Jetpack Compose, modular and clean architectures.</div>
+          <div class="hero-sub">Senior Android &amp; Flutter Developer — I am working on developing and maintaining mobile applications. Strong experience with Kotlin, Jetpack Compose, Flutter, modular and clean architectures.</div>
         </div>
         <div class="cta-links" aria-hidden="true">
           <a class="btn btn--primary" href="mailto:mohamedmzd0@gmail.com">Contact</a>
@@ -228,7 +238,7 @@ body {
       <section class="section" aria-labelledby="summary-heading">
         <h2 id="summary-heading">Professional Summary</h2>
         <div class="summary">
-          Senior Android Developer with 7+ years building production mobile applications across finance, e-commerce, and social domains. Proven track record of delivering 45+ apps, working with Kotlin, Java, Jetpack Compose, Coroutines, and modern architecture patterns (Clean Architecture, MVI/MVVM). I am working on developing and maintaining mobile applications with a focus on performance, modularity, and secure code.
+          Senior Android Developer with 7+ years building production mobile applications across finance, e-commerce, and social domains. Proven track record of delivering 45+ apps, working with Kotlin, Java, Jetpack Compose, Coroutines, and modern architecture patterns (Clean Architecture, MVI/MVVM). Also building cross-platform apps with Flutter &amp; Dart (8+ months) using Bloc, GetX, Dio, Clean Architecture, and Dart FFI for secure native code. I am working on developing and maintaining mobile applications with a focus on performance, modularity, and secure code.
         </div>
       </section>
 
@@ -386,27 +396,48 @@ body {
             <div class="desc">Completed intensive Android training and hands-on development tasks during internship.</div>
           </article>
 
-         
-
         </div>
       </section>
 
       <section id="skills" class="section" aria-labelledby="skills-heading">
         <h2 id="skills-heading">Technical Skills</h2>
-        <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-          <div style="background:var(--card);padding:12px;border-radius:10px">
+        <div class="skill-grid">
+          <div class="skill-card">
             <strong>Languages</strong>
-            <div style="margin-top:8px">Kotlin · Java</div>
+            <div style="margin-top:8px">Kotlin · Java · Dart</div>
           </div>
-          <div style="background:var(--card);padding:12px;border-radius:10px">
-            <strong>Frameworks & Libraries</strong>
+          <div class="skill-card">
+            <strong>Android Frameworks &amp; Libraries</strong>
             <div style="margin-top:8px">Jetpack Compose · Coroutines · Retrofit · Hilt · Koin</div>
           </div>
-          <div style="background:var(--card);padding:12px;border-radius:10px">
+          <div class="skill-card skill-card--flutter">
+            <strong>Flutter (8+ months)</strong>
+            <div class="tech">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">Bloc</span>
+              <span class="tag">GetX</span>
+              <span class="tag">Dio</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">Dart FFI</span>
+            </div>
+          </div>
+          <div class="skill-card skill-card--flutter">
+            <strong>Flutter Tools</strong>
+            <div class="tech">
+              <span class="tag">Flutter DevTools</span>
+              <span class="tag">pub.dev</span>
+              <span class="tag">Android Studio</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Git</span>
+            </div>
+          </div>
+          <div class="skill-card">
             <strong>Architecture</strong>
             <div style="margin-top:8px">MVVM · MVI · Clean Architecture · SOLID</div>
           </div>
-          <div style="background:var(--card);padding:12px;border-radius:10px">
+          <div class="skill-card">
             <strong>Tools</strong>
             <div style="margin-top:8px">Android Studio · Git · CI/CD · Unit Testing</div>
           </div>
@@ -456,19 +487,19 @@ body {
       <section id="education" class="section" aria-labelledby="education-heading">
         <h2 id="education-heading">Education</h2>
         <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-          <div style="background:var(--card);padding:12px;border-radius:10px">
+          <div class="skill-card">
             <div style="font-weight:700">Bachelor of Computers and Information</div>
             <div style="color:var(--muted)">Benha University — May 2018</div>
           </div>
-          <div style="background:var(--card);padding:12px;border-radius:10px">
+          <div class="skill-card">
             <div style="font-weight:700">Android Developer Nanodegree</div>
             <div style="color:var(--muted)">Udacity — Mar 2017</div>
           </div>
-          <div style="background:var(--card);padding:12px;border-radius:10px">
+          <div class="skill-card">
             <div style="font-weight:700">Android Basics</div>
             <div style="color:var(--muted)">Udacity — Apr 2016</div>
           </div>
-          <div style="background:var(--card);padding:12px;border-radius:10px">
+          <div class="skill-card">
             <div style="font-weight:700">JavaSE</div>
             <div style="color:var(--muted)">Imcan — Jul 2015</div>
           </div>
@@ -476,7 +507,7 @@ body {
       </section>
 
       <footer>
-        © <span id="year"></span> Mohamed Abdealziz Eldeeb — Senior Android Developer · <a href="#contact" style="color:var(--accent)">Contact</a>
+        © <span id="year"></span> Mohamed Abdealziz Eldeeb — Senior Android &amp; Flutter Developer · <a href="#contact" style="color:var(--accent)">Contact</a>
       </footer>
     </main>
   </div>
