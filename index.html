@@ -1,536 +1,218 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamed Abdealziz Eldeeb — Senior Android & Flutter Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <meta name="description" content="Mohamed Abdealziz Eldeeb — Senior Android Developer. Expert in Kotlin, Jetpack Compose, Flutter, Dart, Clean Architecture, and mobile app development." />
-  <style>
-    :root{
-      --accent:#3498db;
-      --accent-2:#e74c3c;
-      --flutter:#02569B;
-      --muted:#7f8c8d;
-      --bg-a: linear-gradient(180deg,#e9f1ff 0%, #f5f8fb 100%);
-      --card:#f8f9fa;
-      --glass: rgba(255,255,255,0.7);
-      --radius:12px;
-      font-family: 'Rubik', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color-scheme: light;
-    }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-  body {
-  background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
-  background-attachment: fixed;
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
-  min-height: 100vh;
-}
-
-.wrapper {
-  width: 100%;
-  max-width: 1100px;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 40px rgba(18,38,63,0.08);
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  align-items: start;
-  animation: fadeUp .45s ease both;
-  backdrop-filter: blur(8px);
-}
+<mohamed.dev/>
+About
+Experience
+Skills
+Projects
+Education
+Contact
 
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  overflow-y: auto;
-}
+Senior Android Developer @ SGt
+Hi, I'm Mohamed. I build mobile apps that ship & scale.
+Senior Android & Flutter developer with 7+ years delivering production apps across fintech, e-commerce, healthcare and social — with a focus on clean architecture, performance and secure code.
+Let's work together → View projects
 
 
-    @keyframes fadeUp { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
 
-    /* SIDEBAR */
-    .sidebar{
-      padding:28px;
-      background:linear-gradient(180deg,#ffffff 0%, #f7fbff 100%);
-      border-right: 1px solid rgba(50,70,90,0.03);
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
 
-    .avatar {
-      width:86px;height:86px;border-radius:14px;background:linear-gradient(135deg,var(--accent), #6fb3f7);
-      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;
-      box-shadow: 0 6px 18px rgba(52,152,219,0.12);
-    }
 
-    .name {
-      font-size:1.15rem;font-weight:700;color:#122a3a;margin-top:6px;
-    }
+0
+Years experience
+0
+Apps delivered
+0
+Companies
+0
+Platforms · Android & Flutter
+01 // about
+About me
+I'm a Senior Android Developer who has spent the last 7+ years turning product ideas into fast, reliable mobile apps — from digital banking at oneBank to marketplaces, e-learning, healthcare and real-time voice chat.
+My core stack is Kotlin, Jetpack Compose and Coroutines with Clean Architecture, MVVM/MVI and modular codebases. I also build cross-platform apps with Flutter & Dart — Bloc, GetX, Dio and Dart FFI for secure native code.
+I care about performance, maintainable architecture, and security (obfuscation, secure native layers, CI/CD).
 
-    .role { font-size:0.95rem;color:var(--muted);margin-bottom:6px;font-weight:600; }
+Location
+6th of October, Giza, Egypt
 
-    .contact {
-      display:grid;gap:8px;margin-top:6px;font-size:0.95rem;
-    }
-    .contact a{color:inherit;text-decoration:none}
-    .contact-item{display:flex;gap:8px;align-items:center;padding:8px;border-radius:10px;background:var(--glass);backdrop-filter: blur(6px);}
+Email
+mohamedmzd0@gmail.com
 
-    .nav {
-      display:flex;flex-direction:column;gap:6px;margin-top:12px;
-    }
-    .nav a{
-      display:inline-block;padding:10px 12px;border-radius:10px;color:var(--accent);
-      text-decoration:none;font-weight:600;font-size:0.95rem;
-    }
-    .nav a.active, .nav a:hover{background:rgba(52,152,219,0.06)}
+Phone
++20 101 691 2038
 
-    .sidebar .section-title { margin-top:12px;font-weight:700;color:#203545;font-size:0.9rem;}
-    .skills, .langs {
-      display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
-    }
-    .chip{background:var(--accent);color:white;padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem}
-    .chip--flutter{background:var(--flutter)}
-
-    /* MAIN content */
-    .main {
-      padding:32px 38px;
-    }
-
-    header.main-header{
-      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
-      margin-bottom:18px;
-    }
-    .hero-left{max-width:70%}
-    .hero-title{font-size:1.5rem;font-weight:700;color:#0f2b3a}
-    .hero-sub{color:var(--muted);margin-top:6px;font-size:0.96rem}
-
-    .cta-links{display:flex;gap:10px;align-items:center}
-    .btn{display:inline-block;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600}
-    .btn--primary{background:var(--accent);color:white}
-    .btn--ghost{border:1px solid rgba(16,40,60,0.06);background:white;color:#0f2b3a}
-
-    /* sections */
-    .section { margin-top:18px; margin-bottom:18px; }
-    .section h2 { font-size:1.15rem;color:#12323f;margin-bottom:12px;border-bottom:3px solid var(--accent);display:inline-block;padding-bottom:8px}
-    .summary {
-      background:var(--card);padding:18px;border-radius:10px;border-left:5px solid var(--accent);
-      color:#334; font-size:1rem;
-    }
-
-    /* Experience list */
-    .exp-list{display:flex;flex-direction:column;gap:12px}
-    .exp{
-      background:linear-gradient(180deg,#ffffff,#fbfdff);
-      border-radius:10px;padding:16px;border-left:5px solid #eaeaea;
-      box-shadow:0 6px 18px rgba(8,20,30,0.03);
-    }
-    .exp .job{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-    .job .title{font-weight:700;color:#142d3a}
-    .job .company a{color:var(--accent);font-weight:600;text-decoration:none}
-    .meta{color:var(--muted);font-weight:600;font-size:0.9rem}
-    .desc{margin-top:10px;color:#384350;line-height:1.6}
-    .tech{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
-
-    .tag{background:#eef6ff;border:1px solid rgba(52,152,219,0.08);padding:6px 10px;border-radius:999px;font-weight:600;font-size:0.85rem;color:#134a6b}
-
-    /* skills cards */
-    .skill-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-    .skill-card{background:var(--card);padding:12px;border-radius:10px}
-    .skill-card--flutter{border-left:5px solid var(--flutter)}
-    .skill-card .tech{margin-top:8px}
-
-    /* projects grid */
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:8px}
-    .project{padding:12px;border-radius:10px;background:var(--card);border-left:5px solid var(--accent-2)}
-    .project .p-name{font-weight:700;color:#132c3d}
-    .project .p-desc{color:#36424a;margin-top:8px;font-size:0.95rem}
-    .project a{margin-top:8px;display:inline-block}
-
-    footer{margin-top:20px;color:var(--muted);font-size:0.92rem}
-
-    /* responsive */
-    @media (max-width:980px){
-      .wrapper{grid-template-columns:1fr;min-height:0}
-      .sidebar{order:2;padding:18px}
-      .main{order:1;padding:18px}
-      .hero-left{max-width:100%}
-    }
-
-    @media print{
-      body{padding:0;background:white}
-      .wrapper{box-shadow:none;border-radius:0}
-      .nav,.avatar{display:none}
-    }
-  </style>
-</head>
-<body>
-  <div class="wrapper" role="document" aria-labelledby="profile-heading">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" aria-label="Profile sidebar">
-      <div style="display:flex;gap:12px;align-items:center">
-        <div class="avatar" aria-hidden="true">MA</div>
-        <div>
-          <div class="name">Mohamed Abdealziz Eldeeb</div>
-          <div class="role">Senior Android &amp; Flutter Developer</div>
-        </div>
-      </div>
-
-      <div class="contact" aria-label="Contact information">
-        <div class="contact-item"><span aria-hidden="true">📍</span><span>6th of October, Giza</span></div>
-        <div class="contact-item"><span aria-hidden="true">📞</span><a href="tel:+201016912038">+20 101 691 2038</a></div>
-        <div class="contact-item"><span aria-hidden="true">✉️</span><a href="mailto:mohamedmzd0@gmail.com">mohamedmzd0@gmail.com</a></div>
-        <div class="contact-item"><span aria-hidden="true">🔗</span><a href="https://www.linkedin.com/in/mohamedabdelazizeldeeb" target="_blank" rel="noopener">LinkedIn</a></div>
-        <div class="contact-item"><span aria-hidden="true">📘</span><a href="https://www.facebook.com/m3b3zez" target="_blank" rel="noopener">Facebook</a></div>
-        <div class="contact-item"><span aria-hidden="true">📸</span><a href="https://www.instagram.com/zoz.eldeb" target="_blank" rel="noopener">Instagram</a></div>
-      </div>
-
-      <div class="section-title">Quick Links</div>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#home" class="active">Home</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-      </nav>
-
-      <div style="margin-top:8px">
-        <div class="section-title">Top Skills</div>
-        <div class="skills">
-          <span class="chip">Kotlin</span>
-          <span class="chip">Jetpack Compose</span>
-          <span class="chip chip--flutter">Flutter</span>
-          <span class="chip chip--flutter">Dart</span>
-          <span class="chip">Clean Arch</span>
-        </div>
-      </div>
-
-      <div>
-        <div class="section-title">Languages</div>
-        <div class="langs" style="margin-top:8px">
-          <span class="chip" style="background:#27ae60">Arabic • Native</span>
-          <span class="chip" style="background:#16a085">English • Conversational</span>
-        </div>
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main class="main" id="home">
-      <header class="main-header" role="banner">
-        <div class="hero-left">
-          <div id="profile-heading" class="hero-title">Mohamed Abdealziz Eldeeb</div>
-          <div class="hero-sub">Senior Android &amp; Flutter Developer — I am working on developing and maintaining mobile applications. Strong experience with Kotlin, Jetpack Compose, Flutter, modular and clean architectures.</div>
-        </div>
-        <div class="cta-links" aria-hidden="true">
-          <a class="btn btn--primary" href="mailto:mohamedmzd0@gmail.com">Contact</a>
-          <a class="btn btn--ghost" href="#projects">Projects</a>
-        </div>
-      </header>
-
-      <section class="section" aria-labelledby="summary-heading">
-        <h2 id="summary-heading">Professional Summary</h2>
-        <div class="summary">
-          Senior Android Developer with 7+ years building production mobile applications across finance, e-commerce, and social domains. Proven track record of delivering 45+ apps, working with Kotlin, Java, Jetpack Compose, Coroutines, and modern architecture patterns (Clean Architecture, MVI/MVVM). Also building cross-platform apps with Flutter &amp; Dart (8+ months) using Bloc, GetX, Dio, Clean Architecture, and Dart FFI for secure native code. I am working on developing and maintaining mobile applications with a focus on performance, modularity, and secure code.
-        </div>
-      </section>
-
-      <section id="experience" class="section" aria-labelledby="exp-heading">
-        <h2 id="exp-heading">Professional Experience</h2>
-
-        <div class="exp-list">
-
-           <!-- NEW: SGt (start 11-2025) -->
-          <article class="exp" aria-labelledby="sgt-title">
-            <div class="job">
-              <div>
-                <div id="sgt-title" class="title">Senior Android Developer</div>
-                <div class="company">
-                  <a href="https://www.sure.com.sa/en/" target="_blank" rel="noopener">SGt — Sure (KSA)</a>
-                </div>
-                <div class="meta">Nov 2025 – Present</div>
-              </div>
-             
-            </div>
-            <div class="desc">
-              Joining SGt to work on developing and maintaining mobile applications. Responsibilities include feature development, performance optimization, and modular app architecture.
-            </div>
-            <div class="tech">
-              <span class="tag">Kotlin</span>
-              <span class="tag">Compose</span>
-              <span class="tag">CI/CD</span>
-            </div>
-          </article>
-          
-          <!-- oneBank (MDI) -->
-          <article class="exp" aria-labelledby="onebank-title">
-            <div class="job">
-              <div>
-                <div id="onebank-title" class="title">Senior Android Developer</div>
-                <div class="company">
-                  <a href="https://www.onebank.eg/" target="_blank" rel="noopener">oneBank (MDI) — Misr Digital Innovation</a>
-                </div>
-                <div class="meta">Apr 2024 – Nov 2025</div>
-              </div>
-              <div class="meta" aria-hidden="true">Maadi · Egypt</div>
-            </div>
-            <div class="desc">
-              Developing core features for oneBank's digital banking applications — focusing on secure, modular, and high-performance Android code. Responsibilities include architecting feature modules, CI/CD integration, code obfuscation, and analytics.
-            </div>
-            <div class="tech" aria-hidden="true">
-              <span class="tag">Kotlin</span>
-              <span class="tag">Jetpack Compose</span>
-              <span class="tag">MVI</span>
-              <span class="tag">Modular Architecture</span>
-              <span class="tag">Firebase</span>
-            </div>
-          </article>
-
-          <!-- REFD -->
-          <article class="exp" aria-labelledby="refd-title">
-            <div class="job">
-              <div>
-                <div id="refd-title" class="title">Senior Android Developer</div>
-                <div class="company"><span>REFD</span> · <span>Saudi Arabia</span></div>
-                <div class="meta">Sept 2023 – Apr 2024</div>
-              </div>
-              <div class="meta" aria-hidden="true">Remote</div>
-            </div>
-            <div class="desc">
-              Built a production-grade Android app from scratch using clean architecture and Jetpack Compose. Focus areas: performance, modularity, push notifications and smooth API integration.
-            </div>
-            <div class="tech">
-              <span class="tag">Kotlin</span>
-              <span class="tag">Compose</span>
-              <span class="tag">Clean Architecture</span>
-            </div>
-          </article>
-
-          <!-- Rowaad -->
-          <article class="exp" aria-labelledby="rowaad-title">
-            <div class="job">
-              <div>
-                <div id="rowaad-title" class="title">Senior Android Developer</div>
-                <div class="company"><span>Rowaad Software House</span></div>
-                <div class="meta">Sept 2022 – Sept 2023</div>
-              </div>
-              <div class="meta" aria-hidden="true">Nasr City · Egypt</div>
-            </div>
-            <div class="desc">
-              Delivered multiple e-commerce projects — features included product listings, cart, payments, notifications, and third-party integrations.
-            </div>
-            <div class="tech">
-              <span class="tag">Retrofit</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">Google Maps</span>
-            </div>
-          </article>
-
-          <!-- Pithsoft (Freelance) -->
-          <article class="exp" aria-labelledby="pithsoft-title">
-            <div class="job">
-              <div>
-                <div id="pithsoft-title" class="title">Freelance Senior Android Developer</div>
-                <div class="company"><span>Pithsoft</span> · Giza</div>
-                <div class="meta">Apr 2020 – Aug 2022</div>
-              </div>
-              <div class="meta" aria-hidden="true">Freelance</div>
-            </div>
-            <div class="desc">
-              Delivered 12 Android applications across e-commerce, e-learning and delivery verticals. Implemented core features, payment integrations, and post-launch maintenance.
-            </div>
-          </article>
-
-          <!-- ArabApps -->
-          <article class="exp" aria-labelledby="arabapps-title">
-            <div class="job">
-              <div>
-                <div id="arabapps-title" class="title">Senior Android Developer</div>
-                <div class="company"><span>ArabApps</span></div>
-                <div class="meta">Jul 2019 – Sept 2022</div>
-              </div>
-              <div class="meta" aria-hidden="true">Tanta · Egypt</div>
-            </div>
-            <div class="desc">
-              Developed 20+ apps including social & voice chat platforms; implemented real-time features (Socket.IO/WebRTC), in-app payments and app security.
-            </div>
-            <div class="tech">
-              <span class="tag">Socket.IO</span>
-              <span class="tag">WebRTC</span>
-              <span class="tag">MVP/MVVM</span>
-            </div>
-          </article>
-
-          <!-- HubSolution -->
-          <article class="exp" aria-labelledby="hub-title">
-            <div class="job">
-              <div>
-                <div id="hub-title" class="title">Mobile Developer</div>
-                <div class="company"><span>HubSolution</span></div>
-                <div class="meta">Jan 2019 – Jun 2019</div>
-              </div>
-              <div class="meta" aria-hidden="true">5th Settlement · Egypt</div>
-            </div>
-            <div class="desc">
-              Maintained and supported a tax mobile app — bug fixes, API integrations, and realtime features.
-            </div>
-          </article>
-
-          <!-- Internship -->
-          <article class="exp" aria-labelledby="intern-title">
-            <div class="job">
-              <div>
-                <div id="intern-title" class="title">Intern Android Developer</div>
-                <div class="company"><span>700Apps</span></div>
-                <div class="meta">Aug 2017 – Sept 2017</div>
-              </div>
-              <div class="meta" aria-hidden="true">Tanta · Egypt</div>
-            </div>
-            <div class="desc">Completed intensive Android training and hands-on development tasks during internship.</div>
-          </article>
-
-        </div>
-      </section>
-
-      <section id="skills" class="section" aria-labelledby="skills-heading">
-        <h2 id="skills-heading">Technical Skills</h2>
-        <div class="skill-grid">
-          <div class="skill-card">
-            <strong>Languages</strong>
-            <div style="margin-top:8px">Kotlin · Java · Dart</div>
-          </div>
-          <div class="skill-card">
-            <strong>Android Frameworks &amp; Libraries</strong>
-            <div style="margin-top:8px">Jetpack Compose · Coroutines · Retrofit · Hilt · Koin</div>
-          </div>
-          <div class="skill-card skill-card--flutter">
-            <strong>Flutter (8+ months)</strong>
-            <div class="tech">
-              <span class="tag">Flutter</span>
-              <span class="tag">Dart</span>
-              <span class="tag">Bloc</span>
-              <span class="tag">GetX</span>
-              <span class="tag">Dio</span>
-              <span class="tag">Clean Architecture</span>
-              <span class="tag">Dart FFI</span>
-            </div>
-          </div>
-          <div class="skill-card skill-card--flutter">
-            <strong>Flutter Tools</strong>
-            <div class="tech">
-              <span class="tag">Flutter DevTools</span>
-              <span class="tag">pub.dev</span>
-              <span class="tag">Android Studio</span>
-              <span class="tag">VS Code</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">Git</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <strong>Architecture</strong>
-            <div style="margin-top:8px">MVVM · MVI · Clean Architecture · SOLID</div>
-          </div>
-          <div class="skill-card">
-            <strong>Tools</strong>
-            <div style="margin-top:8px">Android Studio · Git · CI/CD · Unit Testing</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="section" aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Selected Projects</h2>
-        <div class="projects">
-          <div class="project">
-            <div class="p-name">Kayan Voice Chat</div>
-            <div class="p-desc">Voice & social app using Socket.IO, WebRTC and in-app payments. (Removed from Play Store)</div>
-          </div>
-
-          <div class="project">
-            <div class="p-name">Hamaki</div>
-            <div class="p-desc">E-learning mobile app with streaming and PDF viewer.</div>
-            <a class="p-link" href="https://play.google.com/store/search?q=hamaki%20online&c=apps&hl=en" target="_blank">View on Play Store</a>
-          </div>
-
-          <div class="project">
-            <div class="p-name">Mafak</div>
-            <div class="p-desc">Home maintenance & contracting app.</div>
-            <a class="p-link" href="https://play.google.com/store/apps/details?id=com.rowaad.mafk&hl=en" target="_blank">View on Play Store</a>
-          </div>
-
-          <div class="project">
-            <div class="p-name">IMall</div>
-            <div class="p-desc">Multi-store marketplace app.</div>
-            <a class="p-link" href="https://play.google.com/store/apps/details?id=com.rowaad.imall&hl=en" target="_blank">View on Play Store</a>
-          </div>
-
-          <div class="project">
-            <div class="p-name">Refd</div>
-            <div class="p-desc">Healthcare booking app built with Compose and Clean Architecture.</div>
-            <a class="p-link" href="https://play.google.com/store/apps/developer?id=RefdApp&hl=en" target="_blank">Developer Page</a>
-          </div>
-
-          <div class="project">
-            <div class="p-name">Mostadeem</div>
-            <div class="p-desc">Recycling logistics app with real-time tracking.</div>
-            <a class="p-link" href="https://play.google.com/store/apps/details?id=com.rowaad.mostadeem&hl=en" target="_blank">View on Play Store</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="education" class="section" aria-labelledby="education-heading">
-        <h2 id="education-heading">Education</h2>
-        <div style="display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-          <div class="skill-card">
-            <div style="font-weight:700">Bachelor of Computers and Information</div>
-            <div style="color:var(--muted)">Benha University — May 2018</div>
-          </div>
-          <div class="skill-card">
-            <div style="font-weight:700">Android Developer Nanodegree</div>
-            <div style="color:var(--muted)">Udacity — Mar 2017</div>
-          </div>
-          <div class="skill-card">
-            <div style="font-weight:700">Android Basics</div>
-            <div style="color:var(--muted)">Udacity — Apr 2016</div>
-          </div>
-          <div class="skill-card">
-            <div style="font-weight:700">JavaSE</div>
-            <div style="color:var(--muted)">Imcan — Jul 2015</div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        © <span id="year"></span> Mohamed Abdealziz Eldeeb — Senior Android &amp; Flutter Developer · <a href="#contact" style="color:var(--accent)">Contact</a>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    // set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Simple active link handling and smooth scrolling
-    (function() {
-      const links = document.querySelectorAll('.nav a');
-      links.forEach(a => {
-        a.addEventListener('click', (e) => {
-          links.forEach(x => x.classList.remove('active'));
-          a.classList.add('active');
-          const target = document.querySelector(a.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({behavior:'smooth',block:'start'});
-          }
-        });
-      });
-    })();
-  </script>
-</body>
-</html>
+Languages
+Arabic (Native) · English (Conversational)
+02 // experience
+Where I've worked
+Senior Android Developer NOW
+SGt — Sure · KSA
+Nov 2025 – Present
+Developing and maintaining mobile applications — feature development, performance optimization and modular app architecture.
+Kotlin
+Compose
+CI/CD
+Senior Android Developer
+oneBank (MDI) · Misr Digital Innovation
+Apr 2024 – Nov 2025
+Maadi, Egypt
+Core features for oneBank's digital banking apps — secure, modular, high-performance Android code. Architected feature modules, CI/CD integration, code obfuscation and analytics.
+Kotlin
+Jetpack Compose
+MVI
+Modular Architecture
+Firebase
+Senior Android Developer
+REFD · Saudi Arabia
+Sep 2023 – Apr 2024
+Remote
+Built a production-grade Android app from scratch with Clean Architecture and Jetpack Compose — performance, modularity, push notifications and smooth API integration.
+Kotlin
+Compose
+Clean Architecture
+Senior Android Developer
+Rowaad Software House
+Sep 2022 – Sep 2023
+Nasr City, Egypt
+Delivered multiple e-commerce projects — product listings, cart, payments, notifications and third-party integrations.
+Retrofit
+Firebase
+Google Maps
+Freelance Senior Android Developer
+Pithsoft · Giza
+Apr 2020 – Aug 2022
+Freelance
+Delivered 12 Android apps across e-commerce, e-learning and delivery — core features, payment integrations and post-launch maintenance.
+Senior Android Developer
+ArabApps
+Jul 2019 – Sep 2022
+Tanta, Egypt
+Developed 20+ apps including social & voice-chat platforms — real-time features (Socket.IO / WebRTC), in-app payments and app security.
+Socket.IO
+WebRTC
+MVP / MVVM
+Mobile Developer
+HubSolution
+Jan 2019 – Jun 2019
+5th Settlement, Egypt
+Maintained a tax mobile app — bug fixes, API integrations and real-time features.
+Android Developer Intern
+700Apps
+Aug 2017 – Sep 2017
+Tanta, Egypt
+Intensive Android training and hands-on development tasks.
+03 // skills
+Tech stack
+◆
+Android
+7+ years
+Kotlin
+Java
+Jetpack Compose
+Coroutines
+Flow
+Retrofit
+OkHttp
+Hilt
+Koin
+Navigation
+WebView
+◢
+Flutter
+8+ months
+Dart
+Flutter
+Bloc
+GetX
+Dio
+Dart FFI
+DevTools
+⬡
+Architecture
+Patterns & principles
+Clean Architecture
+MVVM
+MVI
+Modularization
+SOLID
+⚡
+Real-time & Integrations
+Backend-facing
+Socket.IO
+WebRTC
+Firebase
+FCM
+Google Maps
+Payments
+🔒
+Security & Quality
+Production readiness
+Obfuscation
+Secure native code
+Unit Testing
+Analytics
+⚙
+Tools
+Day to day
+Android Studio
+VS Code
+Git
+CI/CD
+Angular
+04 // projects
+Selected work
+R
+Healthcare
+Refd
+Healthcare booking app built from scratch with Jetpack Compose and Clean Architecture.
+Compose
+Clean Arch
+Developer page → I
+E-commerce
+IMall
+Multi-store marketplace app with listings, cart, checkout and notifications.
+Kotlin
+Payments
+Google Play → M
+Logistics
+Mostadeem
+Recycling logistics app with real-time tracking.
+Google Maps
+Real-time
+Google Play → M
+Services
+Mafak
+Home maintenance & contracting app connecting customers with service providers.
+Kotlin
+Firebase
+Google Play → H
+E-learning
+Hamaki
+E-learning app with video streaming and an in-app PDF viewer.
+Streaming
+PDF
+Google Play → K
+Social
+Kayan Voice Chat
+Voice & social platform with live rooms, Socket.IO, WebRTC and in-app payments.
+WebRTC
+Socket.IO
+No longer on Play Store
+05 // education
+Education & certifications
+2018
+B.Sc. Computers & Information
+Benha University
+2017
+Android Developer Nanodegree
+Udacity
+2016
+Android Basics
+Udacity
+2015
+Java SE
+Imcan
+06 // contact
+Have a project in mind?
+I'm open to senior mobile roles, freelance Android/Flutter work and consulting. Let's talk.
+mohamedmzd0@gmail.com LinkedIn WhatsApp
+© Mohamed Abdelaziz Eldeeb · Built with plain HTML, CSS & JS
