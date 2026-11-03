@@ -1,218 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohamed Eldeeb — Senior Android & Flutter Developer</title>
+  <meta name="description" content="Mohamed Abdelaziz Eldeeb — Senior Android & Flutter Developer. 7+ years, 45+ shipped apps. Kotlin, Jetpack Compose, Flutter, Clean Architecture." />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta property="og:title" content="Mohamed Eldeeb — Senior Android & Flutter Developer" />
+  <meta property="og:description" content="7+ years building production mobile apps in fintech, e-commerce and social. Kotlin · Compose · Flutter." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mohamedmzd0.github.io/portfolio/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f14'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='monospace' font-weight='700' font-size='28' fill='%233ddc84'%3EME%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-2: #111720;
+      --surface: #151c26;
+      --border: #222c3a;
+      --text: #e6edf3;
+      --muted: #8b98a8;
+      --android: #3ddc84;
+      --flutter: #45b8f5;
+      --grad: linear-gradient(120deg, var(--android), var(--flutter));
+      --radius: 16px;
+      --max: 1120px;
+      --shadow: 0 20px 50px -20px rgba(0,0,0,.6);
+    }
+    [data-theme="light"] {
+      --bg: #f7f9fb;
+      --bg-2: #eef2f6;
+      --surface: #ffffff;
+      --border: #dfe5ec;
+      --text: #0f1720;
+      --muted: #5a6776;
+      --android: #1fa35c;
+      --flutter: #0277bd;
+      --shadow: 0 20px 40px -24px rgba(15,23,32,.25);
+    }
 
-<mohamed.dev/>
-About
-Experience
-Skills
-Projects
-Education
-Contact
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.65 "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: background .3s, color .3s;
+    }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: "Sora", sans-serif; line-height: 1.15; }
+    .mono { font-family: "JetBrains Mono", monospace; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
+    /* background glow */
+    .glow {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 85% -5%, color-mix(in srgb, var(--flutter) 18%, transparent), transparent 70%),
+        radial-gradient(500px 400px at 5% 10%, color-mix(in srgb, var(--android) 14%, transparent), transparent 70%);
+    }
 
-Senior Android Developer @ SGt
-Hi, I'm Mohamed. I build mobile apps that ship & scale.
-Senior Android & Flutter developer with 7+ years delivering production apps across fintech, e-commerce, healthcare and social — with a focus on clean architecture, performance and secure code.
-Let's work together → View projects
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s;
+    }
+    .nav.scrolled { border-color: var(--border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-weight: 700; font-size: 1.05rem; }
+    .logo span { color: var(--android); }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a {
+      padding: 8px 14px; border-radius: 10px; font-size: .92rem; color: var(--muted);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--surface); }
+    .icon-btn {
+      width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text); display: grid; place-items: center; cursor: pointer;
+    }
+    .menu-btn { display: none; }
 
+    /* HERO */
+    .hero { padding: 96px 0 72px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border);
+      background: var(--surface); font-size: .85rem; color: var(--muted);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--android); box-shadow: 0 0 0 4px color-mix(in srgb, var(--android) 25%, transparent); animation: pulse 2s infinite; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 8px transparent; } }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; margin: 22px 0 18px; letter-spacing: -.02em; }
+    .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 12px;
+      font-weight: 600; font-size: .95rem; transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--grad); color: #06140c; box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--android) 60%, transparent); }
+    .btn-ghost { border: 1px solid var(--border); background: var(--surface); }
+    .socials { display: flex; gap: 10px; margin-top: 28px; }
+    .socials a { width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); display: grid; place-items: center; color: var(--muted); transition: color .2s, border-color .2s; }
+    .socials a:hover { color: var(--android); border-color: var(--android); }
+    .socials svg { width: 19px; height: 19px; }
 
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 64px; }
+    .stat { padding: 22px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
+    .stat b { display: block; font-family: "Sora"; font-size: 2rem; font-weight: 800; }
+    .stat span { color: var(--muted); font-size: .9rem; }
 
+    /* SECTIONS */
+    section { padding: 72px 0; }
+    .sec-head { margin-bottom: 36px; }
+    .sec-head .mono { color: var(--android); font-size: .85rem; }
+    .sec-head h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-top: 6px; }
 
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--android) 50%, var(--border)); box-shadow: var(--shadow); }
 
-0
-Years experience
-0
-Apps delivered
-0
-Companies
-0
-Platforms · Android & Flutter
-01 // about
-About me
-I'm a Senior Android Developer who has spent the last 7+ years turning product ideas into fast, reliable mobile apps — from digital banking at oneBank to marketplaces, e-learning, healthcare and real-time voice chat.
-My core stack is Kotlin, Jetpack Compose and Coroutines with Clean Architecture, MVVM/MVI and modular codebases. I also build cross-platform apps with Flutter & Dart — Bloc, GetX, Dio and Dart FFI for secure native code.
-I care about performance, maintainable architecture, and security (obfuscation, secure native layers, CI/CD).
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+    .about-text { padding: 30px; font-size: 1.05rem; color: var(--muted); }
+    .about-text strong { color: var(--text); font-weight: 600; }
+    .about-text p + p { margin-top: 14px; }
+    .info { padding: 30px; display: grid; gap: 16px; align-content: start; }
+    .info-row { display: flex; gap: 14px; align-items: center; }
+    .info-row .ic { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-2); color: var(--android); flex-shrink: 0; }
+    .info-row .ic svg { width: 18px; height: 18px; }
+    .info-row small { display: block; color: var(--muted); font-size: .8rem; }
+    .info-row a:hover { color: var(--android); }
 
-Location
-6th of October, Giza, Egypt
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--android), var(--flutter), var(--border)); border-radius: 2px; }
+    .job { position: relative; padding: 24px 26px; margin-bottom: 16px; }
+    .job::before { content: ""; position: absolute; left: -30px; top: 30px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--android); }
+    .job.current::before { background: var(--android); }
+    .job-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .job h3 { font-size: 1.15rem; }
+    .job .company { color: var(--android); font-weight: 600; margin-top: 2px; }
+    .job .company a:hover { text-decoration: underline; }
+    .job .when { color: var(--muted); font-size: .85rem; text-align: right; }
+    .job p { color: var(--muted); margin-top: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .tag { font-family: "JetBrains Mono", monospace; font-size: .78rem; padding: 5px 10px; border-radius: 8px; background: var(--bg-2); border: 1px solid var(--border); color: var(--text); }
+    .tag.f { color: var(--flutter); }
+    .tag.a { color: var(--android); }
+    .now { display: inline-block; font-size: .72rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: color-mix(in srgb, var(--android) 18%, transparent); color: var(--android); margin-left: 8px; vertical-align: middle; }
 
-Email
-mohamedmzd0@gmail.com
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill { padding: 26px; }
+    .skill .head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .skill .head .ic { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; font-size: 1.2rem; }
+    .ic-a { background: color-mix(in srgb, var(--android) 15%, transparent); color: var(--android); }
+    .ic-f { background: color-mix(in srgb, var(--flutter) 15%, transparent); color: var(--flutter); }
+    .skill h3 { font-size: 1.05rem; }
+    .skill .sub { font-size: .8rem; color: var(--muted); }
 
-Phone
-+20 101 691 2038
+    /* PROJECTS */
+    .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .project { padding: 26px; display: flex; flex-direction: column; }
+    .project .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .project .pic { width: 48px; height: 48px; border-radius: 14px; background: var(--grad); display: grid; place-items: center; font-family: "Sora"; font-weight: 800; color: #06140c; font-size: 1.2rem; }
+    .project .cat { font-size: .75rem; color: var(--muted); font-family: "JetBrains Mono"; }
+    .project h3 { font-size: 1.15rem; }
+    .project p { color: var(--muted); margin: 8px 0 18px; flex: 1; }
+    .project .link { color: var(--android); font-weight: 600; font-size: .9rem; display: inline-flex; gap: 6px; align-items: center; }
+    .project .link:hover { gap: 10px; }
+    .project .off { color: var(--muted); font-size: .85rem; }
 
-Languages
-Arabic (Native) · English (Conversational)
-02 // experience
-Where I've worked
-Senior Android Developer NOW
-SGt — Sure · KSA
-Nov 2025 – Present
-Developing and maintaining mobile applications — feature development, performance optimization and modular app architecture.
-Kotlin
-Compose
-CI/CD
-Senior Android Developer
-oneBank (MDI) · Misr Digital Innovation
-Apr 2024 – Nov 2025
-Maadi, Egypt
-Core features for oneBank's digital banking apps — secure, modular, high-performance Android code. Architected feature modules, CI/CD integration, code obfuscation and analytics.
-Kotlin
-Jetpack Compose
-MVI
-Modular Architecture
-Firebase
-Senior Android Developer
-REFD · Saudi Arabia
-Sep 2023 – Apr 2024
-Remote
-Built a production-grade Android app from scratch with Clean Architecture and Jetpack Compose — performance, modularity, push notifications and smooth API integration.
-Kotlin
-Compose
-Clean Architecture
-Senior Android Developer
-Rowaad Software House
-Sep 2022 – Sep 2023
-Nasr City, Egypt
-Delivered multiple e-commerce projects — product listings, cart, payments, notifications and third-party integrations.
-Retrofit
-Firebase
-Google Maps
-Freelance Senior Android Developer
-Pithsoft · Giza
-Apr 2020 – Aug 2022
-Freelance
-Delivered 12 Android apps across e-commerce, e-learning and delivery — core features, payment integrations and post-launch maintenance.
-Senior Android Developer
-ArabApps
-Jul 2019 – Sep 2022
-Tanta, Egypt
-Developed 20+ apps including social & voice-chat platforms — real-time features (Socket.IO / WebRTC), in-app payments and app security.
-Socket.IO
-WebRTC
-MVP / MVVM
-Mobile Developer
-HubSolution
-Jan 2019 – Jun 2019
-5th Settlement, Egypt
-Maintained a tax mobile app — bug fixes, API integrations and real-time features.
-Android Developer Intern
-700Apps
-Aug 2017 – Sep 2017
-Tanta, Egypt
-Intensive Android training and hands-on development tasks.
-03 // skills
-Tech stack
-◆
-Android
-7+ years
-Kotlin
-Java
-Jetpack Compose
-Coroutines
-Flow
-Retrofit
-OkHttp
-Hilt
-Koin
-Navigation
-WebView
-◢
-Flutter
-8+ months
-Dart
-Flutter
-Bloc
-GetX
-Dio
-Dart FFI
-DevTools
-⬡
-Architecture
-Patterns & principles
-Clean Architecture
-MVVM
-MVI
-Modularization
-SOLID
-⚡
-Real-time & Integrations
-Backend-facing
-Socket.IO
-WebRTC
-Firebase
-FCM
-Google Maps
-Payments
-🔒
-Security & Quality
-Production readiness
-Obfuscation
-Secure native code
-Unit Testing
-Analytics
-⚙
-Tools
-Day to day
-Android Studio
-VS Code
-Git
-CI/CD
-Angular
-04 // projects
-Selected work
-R
-Healthcare
-Refd
-Healthcare booking app built from scratch with Jetpack Compose and Clean Architecture.
-Compose
-Clean Arch
-Developer page → I
-E-commerce
-IMall
-Multi-store marketplace app with listings, cart, checkout and notifications.
-Kotlin
-Payments
-Google Play → M
-Logistics
-Mostadeem
-Recycling logistics app with real-time tracking.
-Google Maps
-Real-time
-Google Play → M
-Services
-Mafak
-Home maintenance & contracting app connecting customers with service providers.
-Kotlin
-Firebase
-Google Play → H
-E-learning
-Hamaki
-E-learning app with video streaming and an in-app PDF viewer.
-Streaming
-PDF
-Google Play → K
-Social
-Kayan Voice Chat
-Voice & social platform with live rooms, Socket.IO, WebRTC and in-app payments.
-WebRTC
-Socket.IO
-No longer on Play Store
-05 // education
-Education & certifications
-2018
-B.Sc. Computers & Information
-Benha University
-2017
-Android Developer Nanodegree
-Udacity
-2016
-Android Basics
-Udacity
-2015
-Java SE
-Imcan
-06 // contact
-Have a project in mind?
-I'm open to senior mobile roles, freelance Android/Flutter work and consulting. Let's talk.
-mohamedmzd0@gmail.com LinkedIn WhatsApp
-© Mohamed Abdelaziz Eldeeb · Built with plain HTML, CSS & JS
+    /* EDUCATION */
+    .edu { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .edu .card { padding: 22px; }
+    .edu .yr { font-family: "JetBrains Mono"; font-size: .8rem; color: var(--android); }
+    .edu h3 { font-size: 1rem; margin: 8px 0 4px; }
+    .edu p { color: var(--muted); font-size: .9rem; }
+
+    /* CONTACT */
+    .contact-box { padding: 56px 40px; text-align: center; position: relative; overflow: hidden; }
+    .contact-box::before { content: ""; position: absolute; inset: 0; background: var(--grad); opacity: .07; }
+    .contact-box h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); position: relative; }
+    .contact-box p { color: var(--muted); margin: 14px auto 28px; max-width: 520px; position: relative; }
+    .contact-box .cta { justify-content: center; position: relative; }
+
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: .88rem; text-align: center; }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .skills-grid, .projects { grid-template-columns: repeat(2, 1fr); }
+      .edu { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .menu-btn { display: grid; }
+      .nav-links { position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch; padding: 12px 20px 20px; background: var(--bg); border-bottom: 1px solid var(--border); display: none; }
+      .nav-links.open { display: flex; }
+      .nav-links .icon-btn { align-self: flex-start; }
+      .hero { padding: 64px 0 48px; }
+      .skills-grid, .projects, .edu { grid-template-columns: 1fr; }
+      .job-top { flex-direction: column; gap: 4px; }
+      .job .when { text-align: left; }
+      section { padding: 56px 0; }
+      .contact-box { padding: 40px 22px; }
+    }
+    @media print {
+      .nav, .glow, .cta, .socials { display: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo mono">&lt;mohamed<span>.dev</span>/&gt;</a>
+      <nav class="nav-links" id="navLinks" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+      </nav>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <div class="container hero">
+      <div class="badge reveal"><span class="dot"></span> Senior Android Developer @ SGt</div>
+      <h1 class="reveal">Hi, I'm Mohamed.<br/>I build <span class="grad">mobile apps</span><br/>that ship &amp; scale.</h1>
+      <p class="lead reveal">Senior Android &amp; Flutter developer with 7+ years delivering production apps across fintech, e-commerce, healthcare and social — with a focus on clean architecture, performance and secure code.</p>
+      <div class="cta reveal">
+        <a class="btn btn-primary" href="#contact">Let's work together →</a>
+        <a class="btn btn-ghost" href="#projects">View projects</a>
+      </div>
+      <div class="socials reveal">
+        <a href="https://github.com/mohamedmzd0" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/mohamedabdelazizeldeeb" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5V9h3zM6.5 7.7a1.7 1.7 0 1 1 0-3.5 1.7 1.7 0 0 1 0 3.5zM19 19h-3v-4.9c0-1.2 0-2.7-1.6-2.7S12.5 12.7 12.5 14v5h-3V9h2.9v1.4c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7z"/></svg></a>
+        <a href="mailto:mohamedmzd0@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a>
+        <a href="https://www.facebook.com/m3b3zez" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="https://www.instagram.com/zoz.eldeb" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      </div>
+
+      <div class="stats">
+        <div class="stat reveal"><b class="grad" data-count="7">0</b><span>Years experience</span></div>
+        <div class="stat reveal"><b class="grad" data-count="45">0</b><span>Apps delivered</span></div>
+        <div class="stat reveal"><b class="grad" data-count="8">0</b><span>Companies</span></div>
+        <div class="stat reveal"><b class="grad" data-count="2">0</b><span>Platforms · Android &amp; Flutter</span></div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="sec-head reveal"><div class="mono">01 // about</div><h2>About me</h2></div>
+        <div class="about-grid">
+          <div class="card about-text reveal">
+            <p>I'm a <strong>Senior Android Developer</strong> who has spent the last 7+ years turning product ideas into fast, reliable mobile apps — from digital banking at <strong>oneBank</strong> to marketplaces, e-learning, healthcare and real-time voice chat.</p>
+            <p>My core stack is <strong>Kotlin, Jetpack Compose and Coroutines</strong> with <strong>Clean Architecture, MVVM/MVI</strong> and modular codebases. I also build cross-platform apps with <strong>Flutter &amp; Dart</strong> — Bloc, GetX, Dio and Dart FFI for secure native code.</p>
+            <p>I care about performance, maintainable architecture, and security (obfuscation, secure native layers, CI/CD).</p>
+          </div>
+          <div class="card info reveal">
+            <div class="info-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-7.6 8-13a8 8 0 0 0-16 0c0 5.4 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg></div><div><small>Location</small>6th of October, Giza, Egypt</div></div>
+            <div class="info-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div><div><small>Email</small><a href="mailto:mohamedmzd0@gmail.com">mohamedmzd0@gmail.com</a></div></div>
+            <div class="info-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div><div><small>Phone</small><a href="tel:+201016912038">+20 101 691 2038</a></div></div>
+            <div class="info-row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div><div><small>Languages</small>Arabic (Native) · English (Conversational)</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="sec-head reveal"><div class="mono">02 // experience</div><h2>Where I've worked</h2></div>
+        <div class="timeline">
+          <article class="card job current reveal">
+            <div class="job-top">
+              <div><h3>Senior Android Developer <span class="now">NOW</span></h3><div class="company"><a href="https://www.sure.com.sa/en/" target="_blank" rel="noopener">SGt — Sure</a> · KSA</div></div>
+              <div class="when">Nov 2025 – Present</div>
+            </div>
+            <p>Developing and maintaining mobile applications — feature development, performance optimization and modular app architecture.</p>
+            <div class="tags"><span class="tag a">Kotlin</span><span class="tag a">Compose</span><span class="tag">CI/CD</span></div>
+          </article>
+
+          <article class="card job reveal">
+            <div class="job-top">
+              <div><h3>Senior Android Developer</h3><div class="company"><a href="https://www.onebank.eg/" target="_blank" rel="noopener">oneBank (MDI)</a> · Misr Digital Innovation</div></div>
+              <div class="when">Apr 2024 – Nov 2025<br/>Maadi, Egypt</div>
+            </div>
+            <p>Core features for oneBank's digital banking apps — secure, modular, high-performance Android code. Architected feature modules, CI/CD integration, code obfuscation and analytics.</p>
+            <div class="tags"><span class="tag a">Kotlin</span><span class="tag a">Jetpack Compose</span><span class="tag">MVI</span><span class="tag">Modular Architecture</span><span class="tag">Firebase</span></div>
+          </article>
+
+          <article class="card job reveal">
+            <div class="job-top">
+              <div><h3>Senior Android Developer</h3><div class="company">REFD · Saudi Arabia</div></div>
+              <div class="when">Sep 2023 – Apr 2024<br/>Remote</div>
+            </div>
+            <p>Built a production-grade Android app from scratch with Clean Architecture and Jetpack Compose — performance, modularity, push notifications and smooth API integration.</p>
+            <div class="tags"><span class="tag a">Kotlin</span><span class="tag a">Compose</span><span class="tag">Clean Architecture</span></div>
+          </article>
+
+          <article class="card job reveal">
+            <div class="job-top">
+              <div><h3>Senior Android Developer</h3><div class="company">Rowaad Software House</div></div>
+              <div class="when">Sep 2022 – Sep 2023<br/>Nasr City, Egypt</div>
+            </div>
+            <p>Delivered multiple e-commerce projects — product listings, cart, payments, notifications and third-party integrations.</p>
+            <div class="tags"><span class="tag">Retrofit</span><span class="tag">Firebase</span><span class="tag">Google Maps</span></div>
+          </article>
+
+          <article class="card job reveal">
+            <div class="job-top">
+              <div><h3>Freelance Senior Android Developer</h3><div class="company">Pithsoft · Giza</div></div>
+              <div class="when">Apr 2020 – Aug 2022<br/>Freelance</div>
+            </div>
+            <p>Delivered 12 Android apps across e-commerce, e-learning and delivery — core features, payment integrations and post-launch maintenance.</p>
+          </article>
+
+          <article class="card job reveal">
+            <div class="job-top">
+              <div><h3>Senior Android Developer</h3><div class="company">ArabApps</div></div>
+              <div class="when">Jul 2019 – Sep 2022<br/>Tanta, Egypt</div>
+            </div>
+            <p>Developed 20+ apps including social &amp; voice-chat platforms — real-time features (Socket.IO / WebRTC), in-app payments and app security.</p>
+            <div class="tags"><span class="tag">Socket.IO</span><span class="tag">WebRTC</span><span class="tag">MVP / MVVM</span></div>
+          </article>
+
+          <article class="card job reveal">
+            <div class="job-top">
+              <div><h3>Mobile Developer</h3><div class="company">HubSolution</div></div>
+              <div class="when">Jan 2019 – Jun 2019<br/>5th Settlement, Egypt</div>
+            </div>
+            <p>Maintained a tax mobile app — bug fixes, API integrations and real-time features.</p>
+          </article>
+
+          <article class="card job reveal">
+            <div class="job-top">
+              <div><h3>Android Developer Intern</h3><div class="company">700Apps</div></div>
+              <div class="when">Aug 2017 – Sep 2017<br/>Tanta, Egypt</div>
+            </div>
+            <p>Intensive Android training and hands-on development tasks.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="sec-head reveal"><div class="mono">03 // skills</div><h2>Tech stack</h2></div>
+        <div class="skills-grid">
+          <div class="card skill reveal">
+            <div class="head"><div class="ic ic-a">◆</div><div><h3>Android</h3><div class="sub">7+ years</div></div></div>
+            <div class="tags"><span class="tag a">Kotlin</span><span class="tag a">Java</span><span class="tag a">Jetpack Compose</span><span class="tag a">Coroutines</span><span class="tag a">Flow</span><span class="tag a">Retrofit</span><span class="tag a">OkHttp</span><span class="tag a">Hilt</span><span class="tag a">Koin</span><span class="tag a">Navigation</span><span class="tag a">WebView</span></div>
+          </div>
+          <div class="card skill reveal">
+            <div class="head"><div class="ic ic-f">◢</div><div><h3>Flutter</h3><div class="sub">8+ months</div></div></div>
+            <div class="tags"><span class="tag f">Dart</span><span class="tag f">Flutter</span><span class="tag f">Bloc</span><span class="tag f">GetX</span><span class="tag f">Dio</span><span class="tag f">Dart FFI</span><span class="tag f">DevTools</span></div>
+          </div>
+          <div class="card skill reveal">
+            <div class="head"><div class="ic ic-a">⬡</div><div><h3>Architecture</h3><div class="sub">Patterns &amp; principles</div></div></div>
+            <div class="tags"><span class="tag">Clean Architecture</span><span class="tag">MVVM</span><span class="tag">MVI</span><span class="tag">Modularization</span><span class="tag">SOLID</span></div>
+          </div>
+          <div class="card skill reveal">
+            <div class="head"><div class="ic ic-f">⚡</div><div><h3>Real-time &amp; Integrations</h3><div class="sub">Backend-facing</div></div></div>
+            <div class="tags"><span class="tag">Socket.IO</span><span class="tag">WebRTC</span><span class="tag">Firebase</span><span class="tag">FCM</span><span class="tag">Google Maps</span><span class="tag">Payments</span></div>
+          </div>
+          <div class="card skill reveal">
+            <div class="head"><div class="ic ic-a">🔒</div><div><h3>Security &amp; Quality</h3><div class="sub">Production readiness</div></div></div>
+            <div class="tags"><span class="tag">Obfuscation</span><span class="tag">Secure native code</span><span class="tag">Unit Testing</span><span class="tag">Analytics</span></div>
+          </div>
+          <div class="card skill reveal">
+            <div class="head"><div class="ic ic-f">⚙</div><div><h3>Tools</h3><div class="sub">Day to day</div></div></div>
+            <div class="tags"><span class="tag">Android Studio</span><span class="tag">VS Code</span><span class="tag">Git</span><span class="tag">CI/CD</span><span class="tag">Angular</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="sec-head reveal"><div class="mono">04 // projects</div><h2>Selected work</h2></div>
+        <div class="projects">
+          <article class="card project reveal">
+            <div class="top"><div class="pic">R</div><span class="cat">Healthcare</span></div>
+            <h3>Refd</h3>
+            <p>Healthcare booking app built from scratch with Jetpack Compose and Clean Architecture.</p>
+            <div class="tags" style="margin:0 0 16px"><span class="tag a">Compose</span><span class="tag">Clean Arch</span></div>
+            <a class="link" href="https://play.google.com/store/apps/developer?id=RefdApp&hl=en" target="_blank" rel="noopener">Developer page →</a>
+          </article>
+          <article class="card project reveal">
+            <div class="top"><div class="pic">I</div><span class="cat">E-commerce</span></div>
+            <h3>IMall</h3>
+            <p>Multi-store marketplace app with listings, cart, checkout and notifications.</p>
+            <div class="tags" style="margin:0 0 16px"><span class="tag a">Kotlin</span><span class="tag">Payments</span></div>
+            <a class="link" href="https://play.google.com/store/apps/details?id=com.rowaad.imall&hl=en" target="_blank" rel="noopener">Google Play →</a>
+          </article>
+          <article class="card project reveal">
+            <div class="top"><div class="pic">M</div><span class="cat">Logistics</span></div>
+            <h3>Mostadeem</h3>
+            <p>Recycling logistics app with real-time tracking.</p>
+            <div class="tags" style="margin:0 0 16px"><span class="tag">Google Maps</span><span class="tag">Real-time</span></div>
+            <a class="link" href="https://play.google.com/store/apps/details?id=com.rowaad.mostadeem&hl=en" target="_blank" rel="noopener">Google Play →</a>
+          </article>
+          <article class="card project reveal">
+            <div class="top"><div class="pic">M</div><span class="cat">Services</span></div>
+            <h3>Mafak</h3>
+            <p>Home maintenance &amp; contracting app connecting customers with service providers.</p>
+            <div class="tags" style="margin:0 0 16px"><span class="tag a">Kotlin</span><span class="tag">Firebase</span></div>
+            <a class="link" href="https://play.google.com/store/apps/details?id=com.rowaad.mafk&hl=en" target="_blank" rel="noopener">Google Play →</a>
+          </article>
+          <article class="card project reveal">
+            <div class="top"><div class="pic">H</div><span class="cat">E-learning</span></div>
+            <h3>Hamaki</h3>
+            <p>E-learning app with video streaming and an in-app PDF viewer.</p>
+            <div class="tags" style="margin:0 0 16px"><span class="tag">Streaming</span><span class="tag">PDF</span></div>
+            <a class="link" href="https://play.google.com/store/search?q=hamaki%20online&c=apps&hl=en" target="_blank" rel="noopener">Google Play →</a>
+          </article>
+          <article class="card project reveal">
+            <div class="top"><div class="pic">K</div><span class="cat">Social</span></div>
+            <h3>Kayan Voice Chat</h3>
+            <p>Voice &amp; social platform with live rooms, Socket.IO, WebRTC and in-app payments.</p>
+            <div class="tags" style="margin:0 0 16px"><span class="tag">WebRTC</span><span class="tag">Socket.IO</span></div>
+            <span class="off">No longer on Play Store</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <div class="sec-head reveal"><div class="mono">05 // education</div><h2>Education &amp; certifications</h2></div>
+        <div class="edu">
+          <div class="card reveal"><div class="yr">2018</div><h3>B.Sc. Computers &amp; Information</h3><p>Benha University</p></div>
+          <div class="card reveal"><div class="yr">2017</div><h3>Android Developer Nanodegree</h3><p>Udacity</p></div>
+          <div class="card reveal"><div class="yr">2016</div><h3>Android Basics</h3><p>Udacity</p></div>
+          <div class="card reveal"><div class="yr">2015</div><h3>Java SE</h3><p>Imcan</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="card contact-box reveal">
+          <div class="mono" style="color:var(--android);position:relative">06 // contact</div>
+          <h2>Have a project in mind?</h2>
+          <p>I'm open to senior mobile roles, freelance Android/Flutter work and consulting. Let's talk.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="mailto:mohamedmzd0@gmail.com">mohamedmzd0@gmail.com</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/mohamedabdelazizeldeeb" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://wa.me/201016912038" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">© <span id="year"></span> Mohamed Abdelaziz Eldeeb · Built with plain HTML, CSS &amp; JS</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // theme
+    const root = document.documentElement;
+    try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+    });
+
+    // mobile menu
+    const menuBtn = document.getElementById('menuBtn'), navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // nav border on scroll
+    const nav = document.getElementById('nav');
+    addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
+
+    // reveal on scroll
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 60 + 'ms'; io.observe(el); });
+
+    // active nav link
+    const links = [...document.querySelectorAll('.nav-links a')];
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
+
+    // count-up stats
+    const cio = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, end = +el.dataset.count; let n = 0;
+      const step = () => { n++; el.textContent = n + (n === end && end > 2 ? '+' : ''); if (n < end) requestAnimationFrame(step); };
+      step(); cio.unobserve(el);
+    }), { threshold: .6 });
+    document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+  </script>
+</body>
+</html>
